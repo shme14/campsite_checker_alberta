@@ -41,6 +41,10 @@ RUN mv geckodriver /usr/local/bin/
 COPY main.py /home/dockeruser/Desktop/main.py
 RUN chmod 777 /home/dockeruser/Desktop/main.py
 
+RUN mkdir /home/dockeruser/.config/autostart
+COPY autostartpython.desktop /home/dockeruser/.config/autostart/autostartpython.desktop
+RUN chmod 777 /home/dockeruser/.config/autostart/autostartpython.desktop
+
 ENV TERM xterm
 # Install NOVNC.
 RUN     git clone --branch v1.2.0 --single-branch https://github.com/novnc/noVNC.git /opt/noVNC; \
