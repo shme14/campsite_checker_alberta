@@ -21,6 +21,8 @@ TOKEN = os.environ.get('ENV_TOKEN')
 chat_id = os.environ.get('ENV_CHATID')
 delay = os.environ.get('ENV_DELAY')
 
+
+
 def open_browser(url: str, headless=False):
     #options = Options()
     #options.add_argument('--headless')
@@ -96,6 +98,14 @@ def alertMe(driver, siteNumber):
     print(requests.get(url2).json()) # this sends the message
 
 if __name__ == '__main__':
+    print(url)
+    print(startDate)
+    print(howLong)
+    print(userName)
+    print(password)
+    print(TOKEN)
+    print(chat_id)
+    print(delay)
     while(1):
         try:
             driver = open_browser(url, headless=False)
