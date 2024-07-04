@@ -41,9 +41,7 @@ RUN mv geckodriver /usr/local/bin/
 COPY main.py /home/dockeruser/Desktop/main.py
 RUN chmod 777 /home/dockeruser/Desktop/main.py
 
-RUN mkdir /home/dockeruser/.config/autostart
-COPY autostartpython.desktop /home/dockeruser/.config/autostart/autostartpython.desktop
-RUN chmod 777 /home/dockeruser/.config/autostart/autostartpython.desktop
+
 
 ENV TERM xterm
 # Install NOVNC.
@@ -65,6 +63,10 @@ RUN groupadd -g 61000 dockeruser; \
     useradd -g 61000 -l -m -s /bin/bash -u 61000 dockeruser
 
 COPY assets/config/ /home/dockeruser/.config
+
+RUN mkdir /home/dockeruser/.config/autostart
+COPY autostartpython.desktop /home/dockeruser/.config/autostart/autostartpython.desktop
+RUN chmod 777 /home/dockeruser/.config/autostart/autostartpython.desktop
 
 RUN chown -R dockeruser:dockeruser /home/dockeruser;\
     chmod -R 777 /home/dockeruser ;\
