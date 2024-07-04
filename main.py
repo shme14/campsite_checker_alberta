@@ -102,5 +102,5 @@ if __name__ == '__main__':
             driver.quit()
         except:
             print(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " - Something went wrong")
-        time.sleep(delay)
+        time.sleep(int(delay))
 

@@ -25,7 +25,9 @@ RUN apt-get update && \
 
 
 RUN apt-get update
-RUN apt-get -y install wget unzip nano python3-pip git chromium
+RUN apt-get -y install wget unzip nano python3-pip git
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb
 RUN python3 -m pip install selenium
 # --break-system-packages
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
