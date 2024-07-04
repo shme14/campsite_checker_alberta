@@ -13,5 +13,7 @@ services:
             - ENV_TOKEN=""
             - ENV_CHATID=""
             - ENV_DELAY=4
+        cap_add:
+            - SYS_ADMIN
         container_name: campsite_checker_ab
         image: campsite_checker_ab
