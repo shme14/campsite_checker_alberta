@@ -20,6 +20,7 @@ password = os.environ.get('ENV_PASSWORD')
 TOKEN = os.environ.get('ENV_TOKEN')
 chat_id = os.environ.get('ENV_CHATID')
 delay = os.environ.get('ENV_DELAY')
+port = os.environ.get('ENV_PORT')
 
 
 
@@ -94,7 +95,7 @@ def open_browser(url: str, headless=False):
     return driver
 
 def alertMe(driver, siteNumber):
-    message = "Site number "+ siteNumber + " found! Remote in using anydesk to 1197520424 !"
+    message = "Site number "+ siteNumber + " found! Remote in using tailscale at http://192.168.1.50:" + port + " !"
     url2 = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
     print(requests.get(url2).json()) # this sends the message
 
