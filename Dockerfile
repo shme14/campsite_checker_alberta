@@ -25,7 +25,7 @@ RUN apt-get update && \
 
 
 RUN apt-get update
-RUN apt-get -y install wget unzip nano python3-pip git
+RUN apt-get -y install wget unzip nano python3-pip git libu2f-udev
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb
 RUN python3 -m pip install selenium
