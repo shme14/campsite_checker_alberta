@@ -1,7 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+#from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.service import Service
+#from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
@@ -22,12 +22,13 @@ chat_id = os.environ.get('ENV_CHATID')
 delay = os.environ.get('ENV_DELAY')
 
 def open_browser(url: str, headless=False):
-    options = Options()
+    #options = Options()
     #options.add_argument('--headless')
     #options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument("--incognito")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    #options.add_argument('--disable-dev-shm-usage')
+    #options.add_argument("--incognito")
+    #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Firefox()
     driver.get(url)
 
     try:
