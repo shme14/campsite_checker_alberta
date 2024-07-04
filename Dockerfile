@@ -30,8 +30,6 @@ RUN python3 -m pip install selenium
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
 RUN mv ./chromedriver-linux64/chromedriver /usr/bin/
-#RUN mkdir /pythonscript
-#RUN git clone https://github.com/BerjaJamie/berjatest.git /pythonscript
 
 
 ENV TERM xterm
@@ -66,7 +64,7 @@ RUN echo  "debian version:  $(cat /etc/debian_version) \n" \
           "user:            $(whoami) \n"
 
 COPY scripts/entrypoint.sh /src
-#COPY main.py /home/dockeruser
+COPY main.py /home/dockeruser/Desktop
 
 #Expose port 5901 to view display using VNC Viewer
 EXPOSE 5901 6901
