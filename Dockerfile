@@ -30,8 +30,8 @@ RUN python3 -m pip install selenium
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
 RUN mv ./chromedriver-linux64/chromedriver /usr/bin/
-RUN mkdir /pythonscript
-RUN git clone https://github.com/BerjaJamie/berjatest.git /pythonscript
+#RUN mkdir /pythonscript
+#RUN git clone https://github.com/BerjaJamie/berjatest.git /pythonscript
 
 
 ENV TERM xterm
