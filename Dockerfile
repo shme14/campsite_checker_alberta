@@ -66,7 +66,7 @@ RUN echo  "debian version:  $(cat /etc/debian_version) \n" \
           "user:            $(whoami) \n"
 
 COPY scripts/entrypoint.sh /src
-COPY main.py /home/dockeruser
+#COPY main.py /home/dockeruser
 
 #Expose port 5901 to view display using VNC Viewer
 EXPOSE 5901 6901
