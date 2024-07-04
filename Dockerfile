@@ -34,6 +34,11 @@ RUN pip install webdriver-manager
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
 RUN mv ./chromedriver-linux64/chromedriver /usr/bin/
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.34.0/geckodriver-v0.34.0-linux64.tar.gz
+RUN tar -xvzf geckodriver*
+RUN chmod +x geckodriver
+RUN mv geckodriver /usr/local/bin/ 
+
 COPY main.py /home/dockeruser/Desktop/main.py
 RUN chmod 777 /home/dockeruser/Desktop/main.py
 
