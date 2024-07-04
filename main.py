@@ -40,9 +40,10 @@ def open_browser(url: str, headless=False):
         result = driver.find_element(By.CSS_SELECTOR, "#lengthOfStay").send_keys(howLong)
         result = driver.find_element(By.CSS_SELECTOR, "#search_avail")
         result.click()
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#sitelistdiv > div:nth-child(1) > div:nth-child(1)")))
+        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#sitelistdiv > div:nth-child(1) > div:nth-child(1)")))
         siteAvailable = (driver.find_element(By.CSS_SELECTOR, "#sitelistdiv > div:nth-child(1) > div:nth-child(1)")).text[:1]
-        if((siteAvailable != "0") and (siteAvailable != "N")):
+        #if((siteAvailable != "0") and (siteAvailable != "N")):
+        if(int(siteAvailable)>0):
             try:
                 print("Found Site! : " + siteAvailable)
                 alertMe(driver, siteAvailable)
