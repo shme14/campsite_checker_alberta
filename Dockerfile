@@ -23,6 +23,7 @@ RUN apt-get update && \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+
 RUN apt-get update
 RUN apt-get -y install wget unzip nano python3-pip git
 RUN python3 -m pip install selenium
@@ -30,7 +31,8 @@ RUN python3 -m pip install selenium
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
 RUN mv ./chromedriver-linux64/chromedriver /usr/bin/
-
+COPY main.py /home/dockeruser/Desktop/main.py
+RUN chmod 777 /home/dockeruser/Desktop/main.py
 
 ENV TERM xterm
 # Install NOVNC.
@@ -64,8 +66,6 @@ RUN echo  "debian version:  $(cat /etc/debian_version) \n" \
           "user:            $(whoami) \n"
 
 COPY scripts/entrypoint.sh /src
-COPY main.py /home/dockeruser/Desktop/main.py
-RUN chmod 777 /home/dockeruser/Desktop/main.py
 
 #Expose port 5901 to view display using VNC Viewer
 EXPOSE 5901 6901
